@@ -1,7 +1,10 @@
 package com.example.lecture_querydsl;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import jakarta.persistence.EntityManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class LectureQuerydslApplication {
@@ -10,4 +13,8 @@ public class LectureQuerydslApplication {
         SpringApplication.run(LectureQuerydslApplication.class, args);
     }
 
+    @Bean
+    JPAQueryFactory jpaQueryFtactory(EntityManager em) {
+        return new JPAQueryFactory(em);
+    }
 }
